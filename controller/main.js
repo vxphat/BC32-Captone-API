@@ -68,6 +68,7 @@ getId("selectProduct").onchange = () => {
   productList.selectProduct = value;
   renderProduct();
 };
+
 const tableList = new GioHang();
 const mappingTable = () => {};
 const themProduct = (id) => {
@@ -87,21 +88,25 @@ const renderTable = () => {
     <tr>
       <td>${idx + 1}</td>
       <td>${name}</td>
-      <td><img class="img-fluid w-50" src="${img}" /></td>
+      <td><img class="img-item w-25" src="${img}" /></td>
       <td>${price}</td>
-      <td class="d-flex align-items-center p-0">
-      <i class="fa-solid fa-circle-minus" onclick="giamSL(${id})"></i>
+      <td class="quantity-item">
+      <i class="las la-minus minusQuantity" onclick="giamSL(${id})"></i>
       <input
-        name=""
-        id="soLuongSP"
-        class="btn"
-        type="button"
-        value="${item.quantity}"
-      />
-      <i class="fa-solid fa-circle-plus" onclick="tangSL(${id})"></i>
+      name=""
+      id="soLuongSP"
+      class="btn"
+      type="button"
+      disable
+      value="${item.quantity}"
+    />
+
+      <i class="las la-plus addQuantity" onclick="tangSL(${id})"></i>
       </td>
       <td>
-      <button class="btn btn-danger">Xóa</button>
+      <button class="btn-delete">
+      <i class="fa-regular fa-trash-can text-danger"></i>
+      </button>
       </td>
     </tr>
     `;

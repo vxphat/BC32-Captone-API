@@ -16,7 +16,12 @@ header .header_cart {
 }
 
 header .header_cart i {
-  font-size: 50px;
+  font-size: 35px;
+}
+header .header_content{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #product {
@@ -60,3 +65,88 @@ header .header_cart i {
   transform: translate(25%, 0);
 }
 /*# sourceMappingURL=main.css.map */
+
+
+/* CANVAS */
+.myCanvas .offcanvas-end{
+width: 1000px;
+}
+.myCanvas .offcanvas-backdrop{
+  background: rgb(0,0,0, 0.75);
+  backdrop-filter: blur(5px)
+}
+
+.myCanvas .offcanvas-backdrop.show{
+  opacity: 1;
+}
+
+.myCanvas .card-footer{
+  margin-top: 85vh;
+  position: fixed;
+  right: 20px;
+}
+.myCanvas .card-footer,
+.myCanvas .card-header{
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+.myCanvas .card{
+  border: none;
+}
+.myCanvas .card-header #offcanvas-title{
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.myCanvas .card-body tbody .img-item{
+  width: 40px;
+  height: 40px;
+}
+
+.myCanvas .card-body tbody tr td{
+  vertical-align: middle;
+}
+
+.myCanvas .card-body tbody .quantity-item .minusQuantity,
+.myCanvas .card-body tbody .quantity-item .addQuantity{
+font-size: 20px;
+}
+
+.myCanvas .card-body tbody .quantity-item #soLuongSP{
+  font-size: 18px;
+  cursor: default;
+  padding: 0 10px;
+}
+
+.myCanvas .card-body tbody .btn-delete{
+border: none;
+outline: none;
+background-color: transparent;
+}
+
+.myCanvas .card-body .purchase{
+  font-size: 25px;
+  font-weight: 500;
+}
+
+/* Button cart */
+.btn-style{
+  background-color: white;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  margin-right: 20px;
+  transition: all 0.5s;
+}
+
+.btn-style:hover{
+  color: white;
+  background-color: black;
+}
+
+.btn:focus,
+.btn-close:focus{
+  outline: 0;
+  box-shadow: none;
+}
