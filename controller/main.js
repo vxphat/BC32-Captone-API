@@ -1,11 +1,14 @@
 function getId(id) {
   return document.getElementById(id);
 }
-const service = new Service();
+
+
+// const service = new Service();
 const productList = new DanhSachSanPham();
+
 const getProduct = () => {
-  service
-    .getListProductAPI()
+  
+    getListProductAPI()
     .then((result) => {
       productList.addProduct(result.data);
       renderProduct();
@@ -13,6 +16,8 @@ const getProduct = () => {
     .catch((error) => console.error(error));
 };
 getProduct();
+
+
 const renderProduct = () => {
   const product = productList.filterProduct().reduce((total, ele, idx) => {
     total += `
@@ -63,6 +68,8 @@ const renderProduct = () => {
   }, "");
   getId("productList").innerHTML = product;
 };
+
+
 getId("selectProduct").onchange = () => {
   const value = getId("selectProduct").value;
   productList.selectProduct = value;
@@ -71,19 +78,34 @@ getId("selectProduct").onchange = () => {
 
 const tableList = new GioHang();
 const mappingTable = () => {};
+
 const themProduct = (id) => {
-  service
-    .getProductById(id)
+    getProductById(id)
     .then((result) => {
       tableList.addToCart(result.data);
       renderTable();
     })
     .catch((error) => console.error(error));
 };
+
+function deleteCart(productId){
+  tableList.deleteCart(productId);
+  renderTable(tableList.DSGH);
+}
+
+
 const renderTable = () => {
   const product = tableList.DSGH.reduce((total, item, idx) => {
-    const { id, name, img, price } = item.product;
-    const { quantity } = item.quantity;
+    const {
+      id,
+      name,
+      img,
+      price
+    } = item.product;
+    const {
+      quantity
+    } = item.quantity;
+
     total += `
     <tr>
       <td>${idx + 1}</td>
@@ -91,7 +113,14 @@ const renderTable = () => {
       <td><img class="img-item w-25" src="${img}" /></td>
       <td>${price}</td>
       <td class="quantity-item">
-      <i class="las la-minus minusQuantity" onclick="giamSL(${id})"></i>
+
+      <button 
+      class="minusQuantity"
+      onclick="giamSL(${id})"
+      >
+      <i class="las la-minus"></i>
+      </button>
+      
       <input
       name=""
       id="soLuongSP"
@@ -100,11 +129,18 @@ const renderTable = () => {
       disable
       value="${item.quantity}"
     />
-
-      <i class="las la-plus addQuantity" onclick="tangSL(${id})"></i>
+    
+      <button class="addQuantity" onclick="tangSL(${id})">
+      <i class="las la-plus"></i>
+      </button>
+      
       </td>
       <td>
-      <button class="btn-delete">
+
+      <button 
+      class="btn-delete" 
+      title="xoá"
+      >
       <i class="fa-regular fa-trash-can text-danger"></i>
       </button>
       </td>
@@ -114,5 +150,16 @@ const renderTable = () => {
   }, "");
   getId("tableProduct").innerHTML = product;
 };
-const giamSL = (id) => {};
-const tangSL = (id) => {};
+const giamSL = (id) => {
+
+};
+const tangSL = (id) => { 
+  
+getProductById(id)
+.then((response)=>{
+  console.log(response);
+  tableList.addToCart(response.data);
+  renderTable();
+})
+.catch((error)=> console.log(error))
+}
