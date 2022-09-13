@@ -24,6 +24,28 @@ header .header_content{
   align-items: center;
 }
 
+header .header_content .header_cart{
+  position: relative;
+}
+
+header .header_content .header__cart-quantity{
+  position: absolute;
+ height: 1.2rem;
+ width: 1.2rem;
+ line-height: 1.2rem;
+ text-align: center;
+  background-color: white;
+  border-radius: 50%;
+  border: 1px solid black;
+  font-size: 12px;
+  font-weight: 600;
+  top: -2px;
+  right: 0.5rem;
+  user-select: none;
+}
+
+
+
 #product {
   position: relative;
 }
@@ -108,18 +130,14 @@ width: 1000px;
   vertical-align: middle;
 }
 
-.myCanvas .card-body tbody .quantity-item .minusQuantity,
-.myCanvas .card-body tbody .quantity-item .addQuantity{
-font-size: 20px;
-}
-
 .myCanvas .card-body tbody .quantity-item #soLuongSP{
   font-size: 18px;
   cursor: default;
   padding: 0 10px;
 }
 
-.myCanvas .card-body tbody .btn-delete{
+.myCanvas .card-body tbody .btn-delete,
+.addQuantity, .minusQuantity{
 border: none;
 outline: none;
 background-color: transparent;
@@ -150,3 +168,4 @@ background-color: transparent;
   outline: 0;
   box-shadow: none;
 }
+

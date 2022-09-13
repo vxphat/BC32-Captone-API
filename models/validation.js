@@ -1,4 +1,3 @@
-class Validation {
   KiemTraTonTai = (valueID, data) => {
     let isStatus = true;
     data.forEach((total, item) => {
@@ -6,4 +5,4 @@ class Validation {
     });
     return isStatus;
   };
-}
+
