@@ -7,8 +7,8 @@ function getId(id) {
 const productList = new DanhSachSanPham();
 
 const getProduct = () => {
-  
-    getListProductAPI()
+
+  getListProductAPI()
     .then((result) => {
       productList.addProduct(result.data);
       renderProduct();
@@ -80,7 +80,7 @@ const tableList = new GioHang();
 const mappingTable = () => {};
 
 const themProduct = (id) => {
-    getProductById(id)
+  getProductById(id)
     .then((result) => {
       tableList.addToCart(result.data);
       renderTable();
@@ -88,7 +88,7 @@ const themProduct = (id) => {
     .catch((error) => console.error(error));
 };
 
-function deleteCart(productId){
+function deleteCart(productId) {
   tableList.deleteCart(productId);
   renderTable(tableList.DSGH);
 }
@@ -153,13 +153,12 @@ const renderTable = () => {
 const giamSL = (id) => {
 
 };
-const tangSL = (id) => { 
-  
-getProductById(id)
-.then((response)=>{
-  console.log(response);
-  tableList.addToCart(response.data);
-  renderTable();
-})
-.catch((error)=> console.log(error))
+const tangSL = (id) => {
+  getProductById(id)
+    .then((response) => {
+      console.log(response);
+      tableList.addToCart(response.data);
+      renderTable();
+    })
+    .catch((error) => console.log(error))
 }

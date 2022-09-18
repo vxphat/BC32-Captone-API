@@ -1,0 +1,29 @@
+.container{
+    max-width: 1700px!important;
+}
+
+.tblSanPham #tblDanhSachSP .btn-style{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.btn-edit{
+    color: blue;
+}
+
+.btn-delete{
+    color: red;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+
+#tblSanPham .table tbody tr td{
+    vertical-align: middle;
+}
+
+.table th{
+    text-align: center;
+}
