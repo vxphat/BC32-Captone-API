@@ -59,7 +59,7 @@ header .header_content .header__cart-quantity{
 }
 
 #product .card_overlay .card .card-layout .card-info {
-  display: none;
+  display: block;
 }
 
 #product .card_overlay .card .card-layout:hover .card-info {

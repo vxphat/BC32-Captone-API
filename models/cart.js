@@ -12,16 +12,15 @@ class GioHang {
     console.log(product)
     const check = KiemTraTonTai(item.product.id, this.DSGH);
 
-    console.log(check)
     if (check){
       this.DSGH.push(item)
     } else {
      this.DSGH = this.DSGH.map((item) =>{
-      return item.product.id === product.id ? item = {product: item.product, quantity: item.quantity+1} : item
+      return item.product.id === product.id ? item = {product: item.product, quantity: item.quantity + 1} : item
      })
     }
     
-    // else console.log(item.quantity);
+
   }
 
   deleteCart(productId){
