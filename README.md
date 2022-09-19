@@ -1,10 +1,5 @@
-# BC_29_Captone_Team10
+# BC_32_Captone_API
 
-Nguyễn Hoàng Hùng
-+Cumstomer
--Layout  
--tạo product bằng MockAPI
--Xây dựng đối tượng
--Hiển thị danh sách sản phẩm
--filter sản phẩm
--xây dựng giỏ hàng
+Vũ Xuân Phát
+Nguyễn Minh Khoa
+
