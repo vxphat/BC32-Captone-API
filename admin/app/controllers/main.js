@@ -148,6 +148,11 @@ dom(".modal-footer").addEventListener("click", (evt) => {
     let desc = dom('#desc').value;
     let type = dom('#type').value;
 
+    let valid = validateForm();    
+    if(!valid){
+        return
+    }
+    
     let product = new Product(null, name, price, screen, backCamera, frontCamera, image, desc, type)
 
     if(elementType === "add"){
@@ -184,4 +189,142 @@ function deleteProduct(productId) {
 
 function dom(selector) {
     return document.querySelector(selector);
+}
+
+
+//========VALIDATION=========
+const validateName = () =>{
+    let name = dom('#name').value;
+    let spanEl = dom('#tbName');
+
+    if(!name){
+        spanEl.innerHTML = "Dữ liệu không được để trống"
+        return false;
+    }
+
+    spanEl.innerHTML = "";
+    return true
+}
+
+const validatePrice = () =>{
+    let price = dom('#price').value;
+    let spanEl = dom('#tbPrice');
+    
+
+    if(!price){
+        spanEl.innerHTML = "Dữ liệu không được để trống"
+        return false;
+    }
+
+    let regex = /^-?\d*\.?\d*$/;
+
+    if(!regex.test(price)){
+        spanEl.innerHTML = "Giá không được có ký tự"
+        return false;
+    }
+
+    spanEl.innerHTML = "";
+    return true
+}
+
+const validateScreen = () =>{
+    let screen = dom('#screen').value;
+    let spanEl = dom('#tbScreen');
+    
+    if(!screen){
+        spanEl.innerHTML = "Dữ liệu không được để trống"
+        return false;
+    }
+
+    spanEl.innerHTML = "";
+    return true
+}
+
+const validateBackCam = () =>{
+    let backCam = dom('#backCamera').value;
+    let spanEl = dom('#tbBCam');
+    
+    if(!backCam){
+        spanEl.innerHTML = "Dữ liệu không được để trống"
+        return false;
+    }
+
+    spanEl.innerHTML = "";
+    return true
+}
+
+const validateFrontCam = () =>{
+    let frontCam = dom('#frontCamera').value;
+    let spanEl = dom('#tbFCam');
+    
+    if(!frontCam){
+        spanEl.innerHTML = "Dữ liệu không được để trống"
+        return false;
+    }
+
+    spanEl.innerHTML = "";
+    return true
+}
+
+const validateImage = () =>{
+    let img = dom('#image').value;
+    let spanEl = dom('#tbImg');
+    
+    if(!img){
+        spanEl.innerHTML = "Dữ liệu không được để trống"
+        return false;
+    }
+
+    spanEl.innerHTML = "";
+    return true
+}
+
+const validateDesc = () =>{
+    let desc = dom('#desc').value;
+    let spanEl = dom('#tbDesc');
+    
+    if(!desc){
+        spanEl.innerHTML = "Dữ liệu không được để trống"
+        return false;
+    }
+
+    if(desc.length > 50){
+        spanEl.innerHTML = "Dữ liệu không được quá 50 ký tự"
+        return false;
+    }
+
+    spanEl.innerHTML = "";
+    return true
+}
+
+const validateType = () =>{
+    let type = dom('#type').value;
+    let spanEl = dom('#tbType');
+    
+    if(type === "Chọn loại sản phẩm"){
+        spanEl.innerHTML = "Chưa chọn loại sản phẩm"
+        return false;
+    }
+
+    spanEl.innerHTML = "";
+    return true
+}
+
+const validateForm = () =>{
+    let isValid = true;
+
+    isValid = 
+    validateName()
+    & validatePrice()
+    & validateScreen()
+    & validateBackCam()
+    & validateFrontCam()
+    & validateImage()
+    & validateDesc()
+    & validateType();
+
+    if(!isValid){
+        return true;
+    }
+    return true;
 }

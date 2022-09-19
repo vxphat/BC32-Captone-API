@@ -9,7 +9,9 @@
 
 
   <link rel="stylesheet" href="../../assets/css/style.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
 </head>
@@ -94,41 +96,56 @@
           <!-- Modal body -->
           <div class="modal-body">
             <input hidden id="id">
-            <div class="form-group">
+            <div class="form-group ">
               <label>Name</label>
-              <input id="name" class="form-control" placeholder="Nhập vào tên sản phẩm" />
+              <input id="name" class="form-control" placeholder="Nhập vào tên sản phẩm" oninput="validateName()" />
+              <span id="tbName" class="text-danger"></span>
             </div>
+
             <div class="form-group">
               <label>Price</label>
-              <input id="price" class="form-control" placeholder="Nhập vào giá sản phẩm" />
+              <input id="price" class="form-control" placeholder="Nhập vào giá sản phẩm" oninput="validatePrice()" />
+              <span id="tbPrice" class="text-danger"></span>
             </div>
+
             <div class="form-group">
               <label>Screen</label>
-              <input id="screen" class="form-control" placeholder="Nhập vào cỡ màn hình" />
+              <input id="screen" class="form-control" placeholder="Nhập vào cỡ màn hình" oninput="validateScreen()"/>
+              <span id="tbScreen" class="text-danger"></span>
             </div>
+
             <div class="form-group">
               <label>Back Camera</label>
-              <input id="backCamera" class="form-control" placeholder="Độ phân giải cam sau" />
+              <input id="backCamera" class="form-control" placeholder="Độ phân giải cam sau" oninput="validateBackCam()"/>
+              <span id="tbBCam" class="text-danger"></span>
             </div>
+
             <div class="form-group">
               <label>Front Camera</label>
-              <input id="frontCamera" class="form-control" placeholder="Độ phân giải cam trước" />
+              <input id="frontCamera" class="form-control" placeholder="Độ phân giải cam trước" oninput="validateFrontCam()"/>
+              <span id="tbFCam" class="text-danger"></span>
             </div>
+
             <div class="form-group">
               <label>Image</label>
-              <input id="image" class="form-control" placeholder="Nhập link ảnh sản phẩm" />
+              <input id="image" class="form-control" placeholder="Nhập link ảnh sản phẩm" oninput="validateImage()"/>
+              <span id="tbImg" class="text-danger"></span>
             </div>
+
             <div class="form-group">
               <label>Description</label>
-              <input id="desc" class="form-control" placeholder="Mô tả" />
+              <input id="desc" class="form-control" placeholder="Mô tả" oninput="validateDesc()"/>
+              <span id="tbDesc" class="text-danger"></span>
             </div>
+
             <div class="form-group">
               <label for="">Type </label>
-              <select class="form-control" id="type">
-                <option >Chọn loại sản phẩm</option>
-                <option value="iphone">iPhone</option>
-                <option value="samsung">Samsung</option>
+              <select class="form-control" id="type" onselect="validateType()">
+                <option value="Chọn loại sản phẩm">Chọn loại sản phẩm</option>
+                <option value="Iphone">iPhone</option>
+                <option value="Samsung">Samsung</option>
               </select>
+              <span id="tbType" class="text-danger"></span>
             </div>
           </div>
           <!-- Modal footer -->

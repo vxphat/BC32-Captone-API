@@ -21,48 +21,30 @@ getProduct();
 const renderProduct = () => {
   const product = productList.filterProduct().reduce((total, ele, idx) => {
     total += `
-    <div class="card_overlay col-12 col-xs-12 col-md-6 col-lg-3">
-    <div class="card container p-0">
-      <div class="card-layout">
-        <img
-          class="card-img-top img-fluid w-100"
-          src="${ele.img}"
-          alt=" "
-        />
-        <div class="card-body d-flex text-center">
-          <span class="card-title col-7 p-0">${ele.name}</span>
-          <span class="card-price text-danger col-5 p-0"
-            >${ele.price}$</span
-          >
-        </div>
-        <div id="card-info" class="card-info container">
-          <div class="card-desc">
-            <p class="screen m-0">
-              <span>Màn hình: </span>
-              <span>${ele.screen}</span>
-            </p>
-            <p class="frontCamera m-0">
-              <span>Cam trước: </span>
-              <span>${ele.frontCamera}</span>
-            </p>
-            <p class="backCamera m-0">
-              <span class="backCamera m-0"> Cam sau: </span>
-              <span>${ele.backCamera}</span>
-            </p>
-            <p class="describe m-0">${ele.desc}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button
-      id="btnThem"
-      type="button"
-      class="btn btn-success"
-      onclick="themProduct('${idx}')"
-    >
-      Thêm vào giỏ hàng
-    </button>
-  </div>
+    <div class="col-3 p-0">
+                    <div class="card">
+                        <div class="card-header">
+                            <img src="${ele.img}" alt="${ele.name}">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-title">
+                                <h6 class="name__product">${ele.name}</h6>
+                                <h6 class="price__product">${ele.price} đ</h6>
+                            </div>
+                            <div class="card-info">
+                                <ul>
+                                    <li><span>Screen:</span> ${ele.screen} </li>
+                                    <li><span>Back Cam:</span> ${ele.backCamera} </li>
+                                    <li><span>Front Cam:</span> ${ele.frontCamera}</li>
+                                    <li><span>Desc:</span> ${ele.desc}</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button id="btnThem" class="btn-addCart" onclick="themProduct('${idx}')">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
     `;
     return total;
   }, "");
