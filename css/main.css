@@ -1,0 +1,248 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Tiro Devanagari Sanskrit', serif;
+  font-family: 'Tiro Tamil', serif;
+}
+
+header {
+  z-index: 999;
+  width: 100%;
+}
+
+header .header_cart {
+  align-items: center;
+}
+
+header .header_cart i {
+  font-size: 35px;
+}
+header .header_content{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .header_content .header_cart{
+  position: relative;
+}
+
+header .header_content .header__cart-quantity{
+  position: absolute;
+ height: 1.2rem;
+ width: 1.2rem;
+ line-height: 1.2rem;
+ text-align: center;
+  background-color: white;
+  border-radius: 50%;
+  border: 1px solid black;
+  font-size: 12px;
+  font-weight: 600;
+  top: -2px;
+  right: 0.5rem;
+  user-select: none;
+}
+
+
+
+#product {
+  position: relative;
+}
+
+#product .card_overlay {
+  position: relative;
+}
+
+#product .card_overlay .card {
+  border: 0px;
+}
+
+#product .card_overlay .card .card-layout .card-info {
+  display: block;
+}
+
+#product .card_overlay .card .card-layout:hover .card-info {
+  display: block;
+}
+
+#product .card_overlay .card .card-layout .card-body {
+  padding: 10px;
+}
+
+#product .card_overlay .card .card-layout .card-body span {
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+#product .card_overlay .card .card-layout .card-desc {
+  font-size: 15px;
+}
+
+#product .card_overlay .card .card-layout .card-desc p span:nth-child(1) {
+  color: red;
+}
+
+#product .card_overlay button {
+  transform: translate(25%, 0);
+}
+/*# sourceMappingURL=main.css.map */
+
+
+/* CANVAS */
+.myCanvas .offcanvas-end{
+width: 1000px;
+}
+.myCanvas .offcanvas-backdrop{
+  background: rgb(0,0,0, 0.75);
+  backdrop-filter: blur(5px)
+}
+
+.myCanvas .offcanvas-backdrop.show{
+  opacity: 1;
+}
+
+.myCanvas .card-footer{
+  margin-top: 85vh;
+  position: fixed;
+  right: 20px;
+}
+.myCanvas .card-footer,
+.myCanvas .card-header{
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+.myCanvas .card{
+  border: none;
+}
+.myCanvas .card-header #offcanvas-title{
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.myCanvas .card-body tbody .img-item{
+  width: 40px;
+  height: 40px;
+}
+
+.myCanvas .card-body tbody tr td{
+  vertical-align: middle;
+}
+
+.myCanvas .card-body tbody .quantity-item #soLuongSP{
+  font-size: 18px;
+  cursor: default;
+  padding: 0 10px;
+}
+
+.myCanvas .card-body tbody .btn-delete,
+.addQuantity, .minusQuantity{
+border: none;
+outline: none;
+background-color: transparent;
+}
+
+.myCanvas .card-body .purchase{
+  font-size: 25px;
+  font-weight: 500;
+}
+
+/* Button cart */
+.btn-style{
+  background-color: white;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  margin-right: 20px;
+  transition: all 0.5s;
+}
+
+.btn-style:hover{
+  color: white;
+  background-color: black;
+}
+
+.btn:focus,
+.btn-close:focus{
+  outline: 0;
+  box-shadow: none;
+}
+
+
+/* Product */
+#product{
+  padding: 50px 0;
+}
+#product .card{
+  border-radius: 0px;
+  /* border-right: 1px solid transparent;
+  border-bottom: 1px solid transparent; */
+}
+#product .card:hover{
+  box-shadow: 0 2px 15px rgb(0 0 0 / 12%);
+  border: 1px solid transparent;
+}
+
+#product .card-header{
+  min-height: 300px;
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
+}
+.card-header img{
+  height: 270px;
+  line-height: 250px;
+  margin-top: 30px;
+  transition: all 0.5s;
+  width: 100%;
+}
+
+#product .card-title{
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+}
+#product .card-body{
+  min-height: 315px;
+}
+#product .card-title .price__product{
+  font-weight: 700;
+}
+
+.card-header:hover img{
+  transform: translateY(-10px);
+}
+
+#product .card-info ul{
+  padding: 1.25em;
+  font-size: 16px;
+}
+#product .card-info ul li{
+  margin-bottom: 5px;
+}
+
+#product .card-info span{
+  font-weight: 700;
+}
+
+#product .card-footer{
+  background-color: transparent;
+  border-top: 1px solid transparent;
+  display: flex;
+  justify-content: center;
+}
+
+#product .card-footer .btn-addCart{
+  text-align: center;
+  margin-bottom: 10px;
+  background-color: transparent;
+  border-radius: 50px;
+  padding: 5px 20px;
+  border: 1px solid black;
+  transition: all 0.5s;
+}
+
+#product .card-footer .btn-addCart:hover{
+  background-color: black;
+  color: white;
+}
