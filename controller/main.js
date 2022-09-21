@@ -81,6 +81,7 @@ const themProduct = (id) => {
         .then((result) => {
             tableList.addToCart(result.data);
             renderTable();
+            totalCart();
         })
         .catch((error) => console.error(error));
 };
@@ -108,7 +109,7 @@ const renderTable = () => {
       <td>${idx + 1}</td>
       <td>${name}</td>
       <td><img class="img-item w-25" src="${img}" /></td>
-      <td class="price">${price}</td>
+      <td class="price">${formatVND(price.toString())}</td>
       <td class="quantity-item">
 
       <button 
@@ -156,6 +157,7 @@ const giamSL = (id) => {
             console.log(response);
             tableList.minusItem(response.data);
             renderTable();
+            totalCart();
         })
         .catch((error) => console.log(error))
 };
@@ -166,6 +168,7 @@ const tangSL = (id) => {
             console.log(response);
             tableList.addToCart(response.data);
             renderTable();
+            totalCart()
         })
         .catch((error) => console.log(error))
 };
@@ -176,6 +179,7 @@ const deleteItem = (id) => {
             // console.log(response);
             tableList.deleteItemCart(response.data.id);
             renderTable();
+            
         })
         .catch((error) => console.log(error))
 };
@@ -190,9 +194,19 @@ for (cartBtn of cartBtns) {
 
 const totalCart = () => {
     const product = tableList.DSGH.reduce((total, item, index) => {
-        total += Number(item.product.price) * Number(item.quantity);
+        total +=  item.product.price * item.quantity;
         return total;
 
     }, 0)
+    
     dom('#total').innerHTML = product;
+}
+
+function formatVND(str) {
+  return str
+     .split("")
+     .reverse()
+     .reduce((prev, next, index) => {
+        return (index % 3 ? next : next + ",") + prev;
+     });
 }
