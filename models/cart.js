@@ -1,5 +1,7 @@
 class GioHang {
-  DSGH = [];
+  constructor(){
+    this.DSGH = []
+  }
 
   createItem(product) {
     const cartItem = {
@@ -47,4 +49,26 @@ class GioHang {
     })
   }
 
+  calcTotalItem(){
+    return this.GioHang.reduce((result, item)=>{
+      return result + item.quantity;
+    }, 0);
+  }
+
+  calcTotalPrice(){
+    return this.GioHang.reduce((result, item)=>{
+      return result + item.calcPrice();
+    },0);
+  }
+
+
+  calcPrice(){
+    return + this.product.price * this.quantity;
+  }
+
+  clearCart(){
+    this.GioHang = [];
+  }
+
 }
+

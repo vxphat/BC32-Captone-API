@@ -45,7 +45,7 @@ const renderProduct = () => {
                         <div class="card-body">
                             <div class="card-title">
                                 <h6 class="name__product">${ele.name}</h6>
-                                <h6 class="price__product">${ele.price} đ</h6>
+                                <h6 class="price__product">${formatVND(ele.price.toString())} đ</h6>
                             </div>
                             <div class="card-info">
                                 <ul>
@@ -195,4 +195,18 @@ const totalCart = () =>{
     
   },"")
   dom('#total').innerHTML = product;
+}
+
+function clearCart(){
+  if (tableList)
+  tableList.clearCart();
+}
+
+function formatVND(str){
+  return str
+  .split("")
+  .reverse()
+  .reduce((prev, next, index)=>{
+    return (index % 3 ? next : next + ",") + prev;
+  });
 }
