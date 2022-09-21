@@ -198,7 +198,7 @@ const totalCart = () => {
 }
 
 const clearCart = () =>{
-  tableList.DSGH.clearCart();
+  tableList.clearCart();
 }
 
 function formatVND(str) {
