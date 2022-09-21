@@ -179,7 +179,7 @@ const deleteItem = (id) => {
             // console.log(response);
             tableList.deleteItemCart(response.data.id);
             renderTable();
-            
+
         })
         .catch((error) => console.log(error))
 };
@@ -188,25 +188,26 @@ for (cartBtn of cartBtns) {
     cartBtn.onclick = (e) => {
         let product_count = Number(shopping_cart.getAttribute('data-product-count')) || 0;
         shopping_cart.setAttribute('data-product-count', product_count + 1)
-
+        return product_count;
     }
+    dom('.data-product-count').innerHTML = "product_count";
 }
 
 const totalCart = () => {
     const product = tableList.DSGH.reduce((total, item, index) => {
-        total +=  item.product.price * item.quantity;
+        total += item.product.price * item.quantity;
         return total;
 
     }, 0)
-    
-    dom('#total').innerHTML = product;
+    var currentFormat = new Intl.NumberFormat("vn-Vn");
+    dom('#total').innerHTML = currentFormat.format(product);
 }
 
 function formatVND(str) {
-  return str
-     .split("")
-     .reverse()
-     .reduce((prev, next, index) => {
-        return (index % 3 ? next : next + ",") + prev;
-     });
+    return str
+        .split("")
+        .reverse()
+        .reduce((prev, next, index) => {
+            return (index % 3 ? next : next + ".") + prev;
+        });
 }
