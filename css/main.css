@@ -28,22 +28,23 @@ header .header_content .header_cart{
   position: relative;
 }
 
-header .header_content .header__cart-quantity{
+header .header_cart::before{
   position: absolute;
- height: 1.2rem;
- width: 1.2rem;
- line-height: 1.2rem;
- text-align: center;
-  background-color: white;
-  border-radius: 50%;
-  border: 1px solid black;
-  font-size: 12px;
-  font-weight: 600;
-  top: -2px;
-  right: 0.5rem;
-  user-select: none;
-}
+  content: attr(data-product-count);
+  top: -0.2rem;
+  right: 0rem;
 
+  width: 1.5rem;
+  height: 1.5rem;
+
+  background-color: red;
+  color: white;
+
+  border-radius: 50%;
+
+  text-align: center;
+  line-height: 1.5rem;
+}
 
 
 #product {

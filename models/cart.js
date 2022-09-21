@@ -33,7 +33,11 @@ class GioHang {
       return item.product.id === product.id && item.quantity !== 0 ? item = {
         product: item.product,
         quantity: item.quantity - 1
-      } : item
+      } 
+      :
+      item;
+      ;
+      
     })
   }
 

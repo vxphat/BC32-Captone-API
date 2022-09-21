@@ -36,12 +36,12 @@
             <img class="img-fluid my-3" width="100" src="./img/knowledge_graph_logo.png" alt="" />
           </a>
         </div>
-        <div class="header_cart ml-auto">
-          <button type="button" name="" id="btnGioHang" class="btn btn-cart" data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+        <div class="header_cart ml-auto shopping_cart" data-product-count="0">
+          <button type="button" id="btnGioHang" class="btn btn-cart " data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" onclick="totalCart()">
             <i class="fa-solid fa-cart-shopping"></i>
           </button>
-          <span id="total-quantity" class="header__cart-quantity">4</span>
+          
         </div>
       </div>
     </div>
@@ -116,7 +116,7 @@
 
         <div class="card-footer">
           <button class="btn-style">Purchase <i class="fa-solid fa-credit-card text-primary"></i></button>
-          <button type="button" id="btn-clearCart" class="btn-style">Clear Cart <i
+          <button type="button" id="btn-clearCart" class="btn-style" onclick="deleteCart()">Clear Cart <i
               class="fa-solid fa-trash-can text-danger"></i></button>
         </div>
       </div>
