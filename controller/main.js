@@ -1,13 +1,13 @@
 function getId(id) {
-  return document.getElementById(id);
+    return document.getElementById(id);
 }
 
-function dom(selector){
-  return document.querySelector(selector);
+function dom(selector) {
+    return document.querySelector(selector);
 }
 
-function domAll(selector){
-  return document.querySelectorAll(selector);
+function domAll(selector) {
+    return document.querySelectorAll(selector);
 }
 
 
@@ -24,19 +24,19 @@ const cartBtns = domAll('.addToCart');
 
 const getProduct = () => {
 
-  getListProductAPI()
-    .then((result) => {
-      productList.addProduct(result.data);
-      renderProduct();
-    })
-    .catch((error) => console.error(error));
+    getListProductAPI()
+        .then((result) => {
+            productList.addProduct(result.data);
+            renderProduct();
+        })
+        .catch((error) => console.error(error));
 };
 getProduct();
 
 
 const renderProduct = () => {
-  const product = productList.filterProduct().reduce((total, ele, idx) => {
-    total += `
+    const product = productList.filterProduct().reduce((total, ele, idx) => {
+        total += `
     <div class="col-3 p-0">
                     <div class="card">
                         <div class="card-header">
@@ -62,48 +62,48 @@ const renderProduct = () => {
                     </div>
                 </div>
     `;
-    return total;
-  }, "");
-  getId("productList").innerHTML = product;
+        return total;
+    }, "");
+    getId("productList").innerHTML = product;
 };
 
 
 getId("selectProduct").onchange = () => {
-  const value = getId("selectProduct").value;
-  productList.selectProduct = value;
-  renderProduct();
+    const value = getId("selectProduct").value;
+    productList.selectProduct = value;
+    renderProduct();
 };
 
 
 
 const themProduct = (id) => {
-  getProductById(id)
-    .then((result) => {
-      tableList.addToCart(result.data);
-      renderTable();
-    })
-    .catch((error) => console.error(error));
+    getProductById(id)
+        .then((result) => {
+            tableList.addToCart(result.data);
+            renderTable();
+        })
+        .catch((error) => console.error(error));
 };
 
 function deleteCart(productId) {
-  tableList.DSGH.deleteCart(productId);
-  renderTable(tableList.DSGH);
+    tableList.DSGH.deleteCart(productId);
+    renderTable(tableList.DSGH);
 }
 
 
 const renderTable = () => {
-  const product = tableList.DSGH.reduce((total, item, idx) => {
-    const {
-      id,
-      name,
-      img,
-      price
-    } = item.product;
-    const {
-      quantity
-    } = item.quantity;
+    const product = tableList.DSGH.reduce((total, item, idx) => {
+        const {
+            id,
+            name,
+            img,
+            price
+        } = item.product;
+        const {
+            quantity
+        } = item.quantity;
 
-    total += `
+        total += `
     <tr>
       <td>${idx + 1}</td>
       <td>${name}</td>
@@ -145,54 +145,54 @@ const renderTable = () => {
     </tr>
 
     `;
-    return total;
-  }, "");
-  getId("tableProduct").innerHTML = product;
+        return total;
+    }, "");
+    getId("tableProduct").innerHTML = product;
 };
 
 const giamSL = (id) => {
-  getProductById(id)
-    .then((response) => {
-      console.log(response);
-      tableList.minusItem(response.data);
-      renderTable();
-    })
-    .catch((error) => console.log(error))
+    getProductById(id)
+        .then((response) => {
+            console.log(response);
+            tableList.minusItem(response.data);
+            renderTable();
+        })
+        .catch((error) => console.log(error))
 };
 
 const tangSL = (id) => {
-  getProductById(id)
-    .then((response) => {
-      console.log(response);
-      tableList.addToCart(response.data);
-      renderTable();
-    })
-    .catch((error) => console.log(error))
+    getProductById(id)
+        .then((response) => {
+            console.log(response);
+            tableList.addToCart(response.data);
+            renderTable();
+        })
+        .catch((error) => console.log(error))
 };
 
 const deleteItem = (id) => {
-  getProductById(id)
-    .then((response) => {
-      // console.log(response);
-      tableList.deleteItemCart(response.data.id);
-      renderTable();
-    })
-    .catch((error) => console.log(error))
+    getProductById(id)
+        .then((response) => {
+            // console.log(response);
+            tableList.deleteItemCart(response.data.id);
+            renderTable();
+        })
+        .catch((error) => console.log(error))
 };
 
-for (cartBtn of cartBtns ){
-  cartBtn.onclick = (e) =>{
-    let product_count = Number(shopping_cart.getAttribute('data-product-count')) || 0;
-    shopping_cart.setAttribute('data-product-count', product_count + 1)
+for (cartBtn of cartBtns) {
+    cartBtn.onclick = (e) => {
+        let product_count = Number(shopping_cart.getAttribute('data-product-count')) || 0;
+        shopping_cart.setAttribute('data-product-count', product_count + 1)
 
-  }
+    }
 }
 
-const totalCart = () =>{
-  const product = tableList.DSGH.reduce((total, item, index)=>{
-    total += Number(item.product) * Number(item.quantity);
-    return total;
-    
-  },"")
-  dom('#total').innerHTML = product;
+const totalCart = () => {
+    const product = tableList.DSGH.reduce((total, item, index) => {
+        total += Number(item.product.price) * Number(item.quantity);
+        return total;
+
+    }, 0)
+    dom('#total').innerHTML = product;
 }
