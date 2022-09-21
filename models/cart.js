@@ -11,6 +11,10 @@ class GioHang {
     return cartItem;
   }
 
+  getCart(){
+    return this.DSGH;
+  }
+
   addToCart(product) {
 
     let item = this.createItem(product);
