@@ -197,10 +197,6 @@ const totalCart = () => {
     dom('#total').innerHTML = currentFormat.format(product) + " đ";
 }
 
-const clearCart = () =>{
-  tableList.clearCart();
-}
-
 function formatVND(str) {
   return str
      .split("")
