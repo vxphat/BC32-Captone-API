@@ -33,7 +33,7 @@ function display(products) {
         <tr>
             <td>${index + 1}</td>
             <td>${product.name}</td>
-            <td>${product.price}</td>
+            <td>${formatVND(product.price.toString())}</td>
             <td>${product.screen}</td>
             <td>${product.backCamera}</td>
             <td>${product.frontCamera}</td>
@@ -184,6 +184,15 @@ function deleteProduct(productId) {
             console.log(error);
         });
 }
+
+function formatVND(str) {
+    return str
+       .split("")
+       .reverse()
+       .reduce((prev, next, index) => {
+          return (index % 3 ? next : next + ",") + prev;
+       });
+  }
 
 
 

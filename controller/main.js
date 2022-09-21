@@ -193,7 +193,8 @@ const totalCart = () => {
 
     }, 0)
     
-    dom('#total').innerHTML = product + " đ";
+    var currentFormat = new Intl.NumberFormat("vn-Vn");
+    dom('#total').innerHTML = currentFormat.format(product) + " đ";
 }
 
 const clearCart = () =>{
@@ -205,6 +206,6 @@ function formatVND(str) {
      .split("")
      .reverse()
      .reduce((prev, next, index) => {
-        return (index % 3 ? next : next + ".") + prev;
+        return (index % 3 ? next : next + ",") + prev;
      });
 }
