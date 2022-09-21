@@ -45,7 +45,7 @@ const renderProduct = () => {
                         <div class="card-body">
                             <div class="card-title">
                                 <h6 class="name__product">${ele.name}</h6>
-                                <h6 class="price__product">${ele.price} đ</h6>
+                                <h6 class="price__product">${formatVND(ele.price.toString())} đ</h6>
                             </div>
                             <div class="card-info">
                                 <ul>
@@ -193,7 +193,11 @@ const totalCart = () => {
 
     }, 0)
     
-    dom('#total').innerHTML = product;
+    dom('#total').innerHTML = product + " đ";
+}
+
+const clearCart = () =>{
+  tableList.DSGH.clearCart();
 }
 
 function formatVND(str) {
@@ -201,6 +205,6 @@ function formatVND(str) {
      .split("")
      .reverse()
      .reduce((prev, next, index) => {
-        return (index % 3 ? next : next + ",") + prev;
+        return (index % 3 ? next : next + ".") + prev;
      });
 }
