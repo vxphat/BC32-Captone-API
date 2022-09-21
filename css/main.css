@@ -31,9 +31,8 @@ header .header_content .header_cart{
   position: relative;
 }
 
-header .header_cart::before{
+header .cart-amount{
   position: absolute;
-  content: attr(data-product-count);
   top: -0.2rem;
   right: 0rem;
 

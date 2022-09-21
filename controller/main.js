@@ -93,6 +93,8 @@ function deleteCart(productId) {
 
 
 const renderTable = () => {
+  dom('#cart-amount').innerHTML = tableList.getCart().length;
+
     const product = tableList.DSGH.reduce((total, item, idx) => {
         const {
             id,
@@ -179,18 +181,10 @@ const deleteItem = (id) => {
             // console.log(response);
             tableList.deleteItemCart(response.data.id);
             renderTable();
-            
+            totalCart();
         })
         .catch((error) => console.log(error))
 };
-
-for (cartBtn of cartBtns) {
-    cartBtn.onclick = (e) => {
-        let product_count = Number(shopping_cart.getAttribute('data-product-count')) || 0;
-        shopping_cart.setAttribute('data-product-count', product_count + 1)
-
-    }
-}
 
 const totalCart = () => {
     const product = tableList.DSGH.reduce((total, item, index) => {
