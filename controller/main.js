@@ -2,9 +2,25 @@ function getId(id) {
   return document.getElementById(id);
 }
 
+function dom(selector){
+  return document.querySelector(selector);
+}
+
+function domAll(selector){
+  return document.querySelectorAll(selector);
+}
+
+
+const productList = new DanhSachSanPham();
+const tableList = new GioHang();
+const mappingTable = () => {};
+const shopping_cart = dom('.shopping_cart');
+const cartBtns = domAll('.addToCart');
+
+
 
 // const service = new Service();
-const productList = new DanhSachSanPham();
+
 
 const getProduct = () => {
 
@@ -41,7 +57,7 @@ const renderProduct = () => {
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button id="btnThem" class="btn-addCart" onclick="themProduct('${idx}')">Add to cart</button>
+                            <button id="btnThem" class="btn-addCart addToCart" onclick="themProduct('${idx}')">Add to cart</button>
                         </div>
                     </div>
                 </div>
@@ -58,22 +74,19 @@ getId("selectProduct").onchange = () => {
   renderProduct();
 };
 
-const tableList = new GioHang();
-const mappingTable = () => {};
+
 
 const themProduct = (id) => {
   getProductById(id)
     .then((result) => {
       tableList.addToCart(result.data);
       renderTable();
-      total();
-      console.log(total());
     })
     .catch((error) => console.error(error));
 };
 
 function deleteCart(productId) {
-  tableList.deleteCart(productId);
+  tableList.DSGH.deleteCart(productId);
   renderTable(tableList.DSGH);
 }
 
@@ -136,6 +149,7 @@ const renderTable = () => {
   }, "");
   getId("tableProduct").innerHTML = product;
 };
+
 const giamSL = (id) => {
   getProductById(id)
     .then((response) => {
@@ -145,6 +159,7 @@ const giamSL = (id) => {
     })
     .catch((error) => console.log(error))
 };
+
 const tangSL = (id) => {
   getProductById(id)
     .then((response) => {
@@ -164,3 +179,20 @@ const deleteItem = (id) => {
     })
     .catch((error) => console.log(error))
 };
+
+for (cartBtn of cartBtns ){
+  cartBtn.onclick = (e) =>{
+    let product_count = Number(shopping_cart.getAttribute('data-product-count')) || 0;
+    shopping_cart.setAttribute('data-product-count', product_count + 1)
+
+  }
+}
+
+const totalCart = () =>{
+  const product = tableList.DSGH.reduce((total, item, index)=>{
+    total += Number(item.product) * Number(item.quantity);
+    return total;
+    
+  },"")
+  dom('#total').innerHTML = product;
+}
