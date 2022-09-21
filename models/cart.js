@@ -54,13 +54,13 @@ class GioHang {
   }
 
   calcTotalItem(){
-    return this.GioHang.reduce((result, item)=>{
+    return this.DSGH.reduce((result, item)=>{
       return result + item.quantity;
     }, 0);
   }
 
   calcTotalPrice(){
-    return this.GioHang.reduce((result, item)=>{
+    return this.DSGH.reduce((result, item)=>{
       return result + item.calcPrice();
     },0);
   }
@@ -71,7 +71,7 @@ class GioHang {
   }
 
   clearCart(){
-    this.GioHang = [];
+    this.DSGH = [];
   }
 
 }
