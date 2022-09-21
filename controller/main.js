@@ -66,6 +66,8 @@ const themProduct = (id) => {
     .then((result) => {
       tableList.addToCart(result.data);
       renderTable();
+      total();
+      console.log(total());
     })
     .catch((error) => console.error(error));
 };
@@ -93,7 +95,7 @@ const renderTable = () => {
       <td>${idx + 1}</td>
       <td>${name}</td>
       <td><img class="img-item w-25" src="${img}" /></td>
-      <td>${price}</td>
+      <td class="price">${price}</td>
       <td class="quantity-item">
 
       <button 
@@ -122,18 +124,26 @@ const renderTable = () => {
       <button 
       class="btn-delete" 
       title="xoá"
+      onclick="deleteItem(${id})"
       >
       <i class="fa-regular fa-trash-can text-danger"></i>
       </button>
       </td>
     </tr>
+
     `;
     return total;
   }, "");
   getId("tableProduct").innerHTML = product;
 };
 const giamSL = (id) => {
-
+  getProductById(id)
+    .then((response) => {
+      console.log(response);
+      tableList.minusItem(response.data);
+      renderTable();
+    })
+    .catch((error) => console.log(error))
 };
 const tangSL = (id) => {
   getProductById(id)
@@ -143,4 +153,14 @@ const tangSL = (id) => {
       renderTable();
     })
     .catch((error) => console.log(error))
-}
+};
+
+const deleteItem = (id) => {
+  getProductById(id)
+    .then((response) => {
+      // console.log(response);
+      tableList.deleteItemCart(response.data.id);
+      renderTable();
+    })
+    .catch((error) => console.log(error))
+};
