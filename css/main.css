@@ -7,8 +7,11 @@
 }
 
 header {
-  z-index: 999;
+  z-index: 1000;
   width: 100%;
+  position: fixed;
+  background-color: white;
+  box-shadow: 0 5px 10px rgb(0 0 0 / 12%);
 }
 
 header .header_cart {
@@ -16,8 +19,36 @@ header .header_cart {
 }
 
 header .header_cart i {
-  font-size: 50px;
+  font-size: 35px;
 }
+header .header_content{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .header_content .header_cart{
+  position: relative;
+}
+
+header .header_cart::before{
+  position: absolute;
+  content: attr(data-product-count);
+  top: -0.2rem;
+  right: 0rem;
+
+  width: 1.5rem;
+  height: 1.5rem;
+
+  background-color: red;
+  color: white;
+
+  border-radius: 50%;
+
+  text-align: center;
+  line-height: 1.5rem;
+}
+
 
 #product {
   position: relative;
@@ -32,7 +63,7 @@ header .header_cart i {
 }
 
 #product .card_overlay .card .card-layout .card-info {
-  display: none;
+  display: block;
 }
 
 #product .card_overlay .card .card-layout:hover .card-info {
@@ -60,3 +91,189 @@ header .header_cart i {
   transform: translate(25%, 0);
 }
 /*# sourceMappingURL=main.css.map */
+
+
+/* CANVAS */
+.myCanvas .offcanvas-end{
+width: 1000px;
+}
+.myCanvas .offcanvas-backdrop{
+  background: rgb(0,0,0, 0.75);
+  backdrop-filter: blur(5px)
+}
+
+.myCanvas .offcanvas-backdrop.show{
+  opacity: 1;
+}
+
+.myCanvas .card-footer{
+  margin-top: 85vh;
+  position: fixed;
+  right: 20px;
+}
+.myCanvas .card-footer,
+.myCanvas .card-header{
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+.myCanvas .card{
+  border: none;
+}
+.myCanvas .card-header #offcanvas-title{
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.myCanvas .card-body tbody .img-item{
+  width: 40px;
+  height: 40px;
+}
+
+.myCanvas .card-body tbody tr td{
+  vertical-align: middle;
+}
+
+.myCanvas .card-body tbody .quantity-item #soLuongSP{
+  font-size: 18px;
+  cursor: default;
+  padding: 0 10px;
+}
+
+.myCanvas .card-body tbody .btn-delete,
+.addQuantity, .minusQuantity{
+border: none;
+outline: none;
+background-color: transparent;
+}
+
+.myCanvas .card-body .purchase{
+  font-size: 25px;
+  font-weight: 500;
+}
+
+/* Button cart */
+.btn-style{
+  background-color: white;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  margin-right: 20px;
+  transition: all 0.5s;
+}
+
+.btn-style:hover{
+  color: white;
+  background-color: black;
+}
+
+.btn:focus,
+.btn-close:focus{
+  outline: 0;
+  box-shadow: none;
+}
+
+
+/* Product */
+#product{
+  padding: 50px 0;
+}
+#product .card{
+  border-radius: 0px;
+  /* border-right: 1px solid transparent;
+  border-bottom: 1px solid transparent; */
+}
+#product .card:hover{
+  box-shadow: 0 2px 15px rgb(0 0 0 / 12%);
+  border: 1px solid transparent;
+}
+
+#product .card-header{
+  min-height: 300px;
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
+}
+.card-header img{
+  height: 270px;
+  line-height: 250px;
+  margin-top: 30px;
+  transition: all 0.5s;
+  width: 100%;
+}
+
+#product .card-title{
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+}
+#product .card-body{
+  min-height: 315px;
+}
+#product .card-title .price__product{
+  font-weight: 700;
+}
+
+.card-header:hover img{
+  transform: translateY(-10px);
+}
+
+#product .card-info ul{
+  padding: 1.25em;
+  font-size: 16px;
+}
+#product .card-info ul li{
+  margin-bottom: 5px;
+}
+
+#product .card-info span{
+  font-weight: 700;
+}
+
+#product .card-footer{
+  background-color: transparent;
+  border-top: 1px solid transparent;
+  display: flex;
+  justify-content: center;
+}
+
+#product .card-footer .btn-addCart{
+  text-align: center;
+  margin-bottom: 10px;
+  background-color: transparent;
+  border-radius: 50px;
+  padding: 5px 20px;
+  border: 1px solid black;
+  transition: all 0.5s;
+}
+
+#product .card-footer .btn-addCart:hover{
+  background-color: black;
+  color: white;
+}
+
+/* ADMIN PAGE */
+.btn-admin{
+  display: flex;
+  justify-content: end;
+  margin-right: 50px;
+  margin-bottom: 50px;
+  
+}
+.btn-admin a{
+  background-color: rgb(97, 97, 97);
+  color: white;
+
+  text-decoration: none;
+  padding: 5px 20px;
+
+  border-radius: 20px;
+  box-shadow: 0px 2px 12px rgb(0 0 0 / 35%);
+
+  font-size: 20px;
+  
+  transition: ease 0.25s;
+}
+
+.btn-admin a:hover{
+background-color: black;
+}
